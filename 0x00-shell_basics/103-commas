@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -m .. [:digit] [:alpha] */ /n
+ls -am -type f .. [:digit] [:alpha] */ /n
