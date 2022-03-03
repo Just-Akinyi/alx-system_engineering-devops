@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -am .. [:digit] [:alpha] dir*/ /n
+ls -am [:digit] [:alpha] */ /n
