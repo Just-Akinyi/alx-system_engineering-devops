@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -f 11 log | uniq -c | sort -n
+cat foo.log | grep request_to_file_foo | awk '{print $1}' | sort -n | uniq -c | sort -rn |head 11
