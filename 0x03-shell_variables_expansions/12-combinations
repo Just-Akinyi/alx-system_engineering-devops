@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z{a..z}} !oo [[:alpha]] max=64
+printf "%s\n" {{a..z}{a..z}}{{a..z}{a..z}}{{a..z}{a..z}}{{a..z}{a..z}}{{a..z}{a..z}}
