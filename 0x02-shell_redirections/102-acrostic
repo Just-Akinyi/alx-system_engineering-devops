@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -Eo '^[^ ]+' file
+cut -c1 | paste -s | tr -d "[:blank:]"
