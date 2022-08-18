@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/bashaa
 ls -At | head -n 10
