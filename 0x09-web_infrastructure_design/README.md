@@ -6,18 +6,18 @@
 
 Clone the repository with the following command
 
-    git clone 
+    git clone https://github.com/Just-Akinyi/alx-system_engineering-devops.git
     
 After cloning the repository Navigate to the "AirBnB_clone" repository
 
-    cd AirBnB_clone
+    cd alx-system_engineering-devops/0x09-web_infrastructure_design
     
 ## Authors
-* **????** <???@gmail.com>
+* **Kendi Rita** <ritabetty77@gmail.com>
 * **Justin Akinyi** <justakinyi1@gmail.com>
 
-#   WEB INFRASTRACTURE DESIGN
-#   Tasks
+##   WEB INFRASTRACTURE DESIGN
+###  Tasks
    ## 0.Simple Web Stack
     A lot of websites are powered by simple web infrastructure, a lot of time it is composed of a single server with a LAMP stack.
 
