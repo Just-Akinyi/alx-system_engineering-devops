@@ -1,2 +1,2 @@
-#!/bin/bashSSS
+#!/bin/bash
 cat -n | grep [135759][[:space:]] | tr -s ' ' | cut -f2
