@@ -1,2 +1,2 @@
-#!/bin/bashF
+#!/bin/bash
  tr -d 'cC'
