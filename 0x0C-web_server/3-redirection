@@ -11,4 +11,4 @@ printf %s "server {
         return 301 http://cuberule.com/;
     }
 }" > /etc/nginx/sites-available/default
-service nginx start
+service nginx star
