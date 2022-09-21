@@ -1,13 +1,6 @@
-# configures server connection without password, also connects using holberton
-include stdlib
-
-file_line { 'PasswordAuthentication':
-  ensure => 'present',
-  path   => '/etc/ssh/ssh_config',
-  line   => 'PasswordAuthentication no',
-}
-file_line { 'IdentityFile':
-  ensure => 'present',
-  path   => '/etc/ssh/ssh_config',
-  line   => 'IdentityFile ~/.ssh/school'
+# Changes SSH config file
+exec { 'echo':
+  path    => 'usr/bin:/bin',
+  command => 'echo "    IdentityFile ~/.ssh/school\n    PasswordAuthentication no" >> /etc/ssh/ssh_config',
+  returns => [0,1],
 }
