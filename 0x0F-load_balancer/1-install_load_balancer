@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Setup a load balancer connected to two other servers
+sudo apt-get update
+sudo apt-get install -y haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.copy
+sudo sed -i '$a\\nlisten appname 0.0.0.0:80\n\tmode http\n\tstats enable' /etc/haproxy/haproxy.cfg
+sudo sed -i '$a\\tbalance roundrobin\n\toption httpclose\n\toption forwardfor' /etc/haproxy/haproxy.cfg
+sudo sed -i '$a\\tserver 13623-web-01 3.237.38.31\n\tserver 13623-web-02 34.204.193.193' /etc/haproxy/haproxy.cfg
+sudo service haproxy start
