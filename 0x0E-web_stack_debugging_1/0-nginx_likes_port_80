@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# fix bug from listening to port 8080 to  80
+sed -i "s/8080/80/g" /etc/nginx/stite-enabled/default
+servic nginx restart
