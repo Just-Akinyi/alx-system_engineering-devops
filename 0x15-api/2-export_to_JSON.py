@@ -1,24 +1,42 @@
 #!/usr/bin/python3
-import json
+"""Export data from an API to JSON format.
+"""
+from json import dumps
 import requests
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    url = 'https://jsonplaceholder.typicode.com/users/'
-    if len(sys.argv) > 1:
-        user_id = sys.argv[1]
-        get_user = requests.get('{}{}'.format(url, user_id))
-        username = get_user.json().get('username')
-        tasks_req = requests.get('{}{}/todos'.format(url, user_id))
-        tasks = tasks_req.json()
-        with open('{}.json'.format(user_id), mode="w", newline="") as file:
-            dic_list = []
-            for dic in tasks:
-                new_dic = {}
-                new_dic["task"] = dic.get('title')
-                new_dic['completed'] = dic.get('completed')
-                new_dic['username'] = username
-                dic_list.append(new_dic)
-            json_dic = {}
-            json_dic[user_id] = dic_list
-            json.dump(json_dic, file)
+    # Checks if the argument can be converted to a number
+    try:
+        emp_id = int(argv[1])
+    except ValueError:
+        exit()
+
+    # Main formatted names to API uris and filenames
+    api_url = 'https://jsonplaceholder.typicode.com'
+    user_uri = '{api}/users/{id}'.format(api=api_url, id=emp_id)
+    todo_uri = '{user_uri}/todos'.format(user_uri=user_uri)
+    filename = '{emp_id}.json'.format(emp_id=emp_id)
+
+    # User Response
+    u_res = requests.get(user_uri).json()
+
+    # User TODO Response
+    t_res = requests.get(todo_uri).json()
+
+    # A list of all tasks of an user
+    user_tasks = list()
+
+    for elem in t_res:
+        data = {
+            'task': elem.get('title'),
+            'completed': elem.get('completed'),
+            'username': u_res.get('username')
+        }
+
+        user_tasks.append(data)
+
+    # Create the new file for the user to save the information
+    # Filename example: `{user_id}.json`
+    with open(filename, 'w', encoding='utf-8') as jsonfile:
+        jsonfile.write(dumps({emp_id: user_tasks}))
