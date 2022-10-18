@@ -15,7 +15,7 @@ defaults
     timeout server  10000
 frontend http
     bind *:80
-    bind *:443 ssl crt /etc/letsencrypt/live/www.globaljustin.tech/rsa.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.globaljustin.tech/merged.pem
     http-request redirect scheme https unless { ssl_fc }
     default_backend web-backend
 backend web-backend
