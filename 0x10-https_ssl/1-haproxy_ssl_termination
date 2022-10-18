@@ -20,5 +20,5 @@ frontend http
     default_backend web-backend
 backend web-backend
     balance roundrobin
-    server 13623-web-01 3.237.38.31:80 check
-    server 13623-web-02 34.204.193.193:80 check
+    server 13623-web-01 44.210.237.152:80 check
+    server 13623-web-02 3.236.59.84:80 check
